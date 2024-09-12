@@ -1,7 +1,9 @@
-import 'package:bev_bank/components/cards/user_card.dart';
-import 'package:bev_bank/routing/router.dart';
-import 'package:bev_bank/routing/routes.dart';
+import 'package:bev_bank/application/user/user_bloc.dart';
+import 'package:bev_bank/pages/home/components/appbar_button.dart';
+import 'package:bev_bank/pages/home/components/user_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,69 +14,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    context.read<UserBloc>().add(LoadUsersEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BevBank'),
+        title: Text(AppLocalizations.of(context)!.appTitle),
         elevation: 1.0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextButton.icon(
-              onPressed: () {},
-              label: Text("Transactions"),
-              icon: const Icon(Icons.storage),
-            ),
+          AppBarButton(
+            icon: Icons.storage,
+            label: AppLocalizations.of(context)!.buttonTransaction,
+            onPressed: () {},
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextButton.icon(
-              onPressed: () {},
-              label: Text("Add Payment"),
-              icon: const Icon(Icons.add),
-            ),
+          AppBarButton(
+            icon: Icons.add,
+            label: AppLocalizations.of(context)!.buttonAddPayment,
+            onPressed: () {},
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextButton.icon(
-              onPressed: () {},
-              label: Text("Sort By: Room"),
-              icon: const Icon(Icons.sort),
-            ),
+          AppBarButton(
+            onPressed: () {},
+            label: "${AppLocalizations.of(context)!.buttonSortBy}: "
+                "${AppLocalizations.of(context)!.filterOptionRoom}",
+            icon: Icons.sort,
           ),
-          // IconButton(
-          //   icon: const Icon(Icons.notifications),
-          //   onPressed: () {},
-          // ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    mainAxisExtent: 120,
-                  ),
-                  itemCount: 15,
-                  itemBuilder: (context, index) {
-                    return UserCard.fromProps(
-                      id: 0,
-                      name: 'User ${index + 1}',
-                      balance: 1000.0,
-                      roomNumber: index,
-                      onTap: () =>
-                          PageRouter.goToPage(AppRoute.selection, context),
-                    );
-                  }),
-            ),
-          )
-        ],
-      ),
+      body: const UserSelector(),
     );
   }
 }

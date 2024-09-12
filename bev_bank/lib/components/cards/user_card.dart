@@ -38,6 +38,7 @@ class UserCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     user.name,
@@ -53,7 +54,7 @@ class UserCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                (user.roomNumber + 1).toString().padLeft(2, '0'),
+                user.roomNumber.toString().padLeft(2, '0'),
                 style: Theme.of(context).textTheme.displayLarge,
               ),
             ),

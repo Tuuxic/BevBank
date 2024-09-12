@@ -1,4 +1,3 @@
-import 'package:bev_bank/domain/models/user.dart';
 import 'package:bev_bank/pages/home/home.dart';
 import 'package:bev_bank/pages/selection/selection.dart';
 import 'package:bev_bank/pages/transaction/transaction.dart';
@@ -16,6 +15,6 @@ enum AppRoute {
   static Map<String, WidgetBuilder> get routes => {
         home.path: (context) => const HomePage(),
         transactions.path: (context) => const TransactionsPage(),
-        selection.path: (context) => const SelectionPage(user: User.invalid()),
+        selection.path: (context) => const SelectionPage(),
       };
 }

@@ -10,11 +10,4 @@ class User {
     required this.balance,
     required this.roomNumber,
   });
-
-  const User.invalid({
-    this.id = -1,
-    this.name = "",
-    this.balance = 0.0,
-    this.roomNumber = -1,
-  });
 }

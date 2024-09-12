@@ -2,8 +2,8 @@ import 'package:bev_bank/components/cards/beverage_card.dart';
 import 'package:bev_bank/components/cards/content_card.dart';
 import 'package:flutter/material.dart';
 
-class BeverageSelection extends StatelessWidget {
-  const BeverageSelection({super.key});
+class BeverageSelectionCard extends StatelessWidget {
+  const BeverageSelectionCard({super.key});
 
   @override
   Widget build(BuildContext context) {

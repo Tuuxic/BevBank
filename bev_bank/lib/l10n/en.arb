@@ -1,3 +1,16 @@
 {
-    "@@locale": "en"
+    "@@locale": "en",
+
+    "appTitle": "BevBank",
+
+    "pageSelectionTitle": "Select Beverages",
+    "pageTransactionTitle": "Transactions",
+
+    "noUserSelectedWarning": "No user selected",
+    
+    "buttonTransaction": "Transactions",
+    "buttonAddPayment": "Add Payment",
+    "buttonSortBy": "Sort By",
+    "filterOptionRoom": "Room",
+    "filterOptionDebt": "Balance"
 }

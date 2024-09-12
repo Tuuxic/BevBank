@@ -1,3 +1,16 @@
 {
-    "@@locale": "de"
+    "@@locale": "de",
+
+    "appTitle": "BevBank",
+
+    "pageSelectionTitle": "Wähle Getränke",
+    "pageTransactionTitle": "Transaktionen",
+
+    "noUserSelectedWarning": "Kein User ausgewählt",
+
+    "buttonTransaction": "Transaktionen",
+    "buttonAddPayment": "Geld einzahlen",
+    "buttonSortBy": "Sortieren nach",
+    "filterOptionRoom": "Raum",
+    "filterOptionDebt": "Saldo"
 }
