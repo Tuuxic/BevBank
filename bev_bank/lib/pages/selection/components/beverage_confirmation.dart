@@ -1,6 +1,7 @@
 import 'package:bev_bank/components/cards/content_card.dart';
 import 'package:bev_bank/domain/models/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BeverageConfirmation extends StatelessWidget {
   final User user;
@@ -23,9 +24,15 @@ class BeverageConfirmation extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Total: $totalSpending"),
+                  Text(
+                    "${AppLocalizations.of(context)!.selectionTotal}: "
+                    "$totalSpending",
+                  ),
                   Text(user.name),
-                  Text("Balance: ${user.balance}"),
+                  Text(
+                    "${AppLocalizations.of(context)!.userBalance}: "
+                    "${user.balance}",
+                  ),
                 ],
               ),
             ),
@@ -48,7 +55,8 @@ class BeverageConfirmation extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                           ),
-                          child: const Text("Confirm"),
+                          child:
+                              Text(AppLocalizations.of(context)!.buttonConfirm),
                         ),
                       ),
                     ),
@@ -64,7 +72,8 @@ class BeverageConfirmation extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                           ),
-                          child: const Text("Cancel"),
+                          child:
+                              Text(AppLocalizations.of(context)!.buttonCancel),
                         ),
                       ),
                     )

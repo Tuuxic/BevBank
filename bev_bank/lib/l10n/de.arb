@@ -12,5 +12,10 @@
     "buttonAddPayment": "Geld einzahlen",
     "buttonSortBy": "Sortieren nach",
     "filterOptionRoom": "Raum",
-    "filterOptionDebt": "Saldo"
+    "filterOptionDebt": "Saldo",
+
+    "buttonConfirm": "Bestätigen",
+    "buttonCancel": "Abbrechen",
+    "selectionTotal": "Total",
+    "userBalance": "Balance"
 }

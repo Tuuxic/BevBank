@@ -1,6 +1,8 @@
 import 'package:bev_bank/application/user/user_bloc.dart';
 import 'package:bev_bank/pages/home/components/appbar_button.dart';
 import 'package:bev_bank/pages/home/components/user_selector.dart';
+import 'package:bev_bank/routing/router.dart';
+import 'package:bev_bank/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -29,7 +31,10 @@ class _HomePageState extends State<HomePage> {
           AppBarButton(
             icon: Icons.storage,
             label: AppLocalizations.of(context)!.buttonTransaction,
-            onPressed: () {},
+            onPressed: () => PageRouter.goToPage(
+              AppRoute.transactions,
+              context,
+            ),
           ),
           AppBarButton(
             icon: Icons.add,
@@ -37,10 +42,10 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {},
           ),
           AppBarButton(
-            onPressed: () {},
+            icon: Icons.sort,
             label: "${AppLocalizations.of(context)!.buttonSortBy}: "
                 "${AppLocalizations.of(context)!.filterOptionRoom}",
-            icon: Icons.sort,
+            onPressed: () {},
           ),
         ],
       ),

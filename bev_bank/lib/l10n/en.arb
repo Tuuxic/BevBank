@@ -12,5 +12,12 @@
     "buttonAddPayment": "Add Payment",
     "buttonSortBy": "Sort By",
     "filterOptionRoom": "Room",
-    "filterOptionDebt": "Balance"
+    "filterOptionDebt": "Balance",
+
+    
+    "buttonConfirm": "Confirm",
+    "buttonCancel": "Cancel",
+    "selectionTotal": "Total",
+    "userBalance": "Balance"
+
 }
