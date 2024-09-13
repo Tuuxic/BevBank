@@ -4,6 +4,7 @@ import 'package:bev_bank/components/cards/user_card.dart';
 import 'package:bev_bank/domain/models/user.dart';
 import 'package:bev_bank/routing/router.dart';
 import 'package:bev_bank/routing/routes.dart';
+import 'package:bev_bank/util/screen_size_detection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,7 @@ class UserSelector extends StatelessWidget {
           case UsersLoading _:
             return const Center(child: CircularProgressIndicator());
           case UsersLoaded state:
-            return _userSelector(state.users);
+            return _userSelector(state.users, context);
           case UsersLoadError state:
             return Center(child: Text("ERROR: ${state.message}"));
         }
@@ -26,15 +27,15 @@ class UserSelector extends StatelessWidget {
     );
   }
 
-  Widget _userSelector(List<User> users) {
+  Widget _userSelector(List<User> users, BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: ScreenSizeDetection.isMobile(context) ? 1 : 3,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 mainAxisExtent: 120,

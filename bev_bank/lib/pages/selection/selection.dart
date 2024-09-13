@@ -4,6 +4,7 @@ import 'package:bev_bank/domain/models/user.dart';
 import 'package:bev_bank/pages/selection/components/beverage_confirmation.dart';
 import 'package:bev_bank/pages/selection/components/beverage_selection.dart';
 import 'package:bev_bank/pages/selection/components/shopping_cart.dart';
+import 'package:bev_bank/util/screen_size_detection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -44,47 +45,103 @@ class _SelectionPageState extends State<SelectionPage> {
   }
 
   Widget displayBeverageSelection(User user) {
+    bool isMobile = ScreenSizeDetection.isMobile(context);
+
     return BlocBuilder<BeverageSelectionBloc, BeverageSelectionState>(
       builder: (context, state) {
         switch (state) {
           case BeverageSelection _:
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Flexible(
-                  flex: 3,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      top: 16.0,
-                      left: 8.0,
-                      right: 8.0,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Flexible(flex: 1, child: BeverageSelectionCard()),
-                        Flexible(flex: 1, child: ShoppingCartDataTable())
-                      ],
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 16.0, left: 8.0, right: 8.0),
-                      child: BeverageConfirmation(
-                        user: user,
-                        totalSpending: _totalSpending,
-                      )),
-                )
-              ],
-            );
+            return isMobile ? mobileView(user) : wideScreenView(user);
         }
       },
+    );
+  }
+
+  Widget wideScreenView(User user) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        const Flexible(
+          flex: 3,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 16.0,
+              left: 8.0,
+              right: 8.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Flexible(flex: 1, child: BeverageSelectionCard()),
+                Flexible(flex: 1, child: ShoppingCartDataTable())
+              ],
+            ),
+          ),
+        ),
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 8.0,
+              right: 8.0,
+              bottom: 16.0,
+            ),
+            child: BeverageConfirmation(
+              user: user,
+              totalSpending: _totalSpending,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget mobileView(User user) {
+    return CustomScrollView(
+      // mainAxisSize: MainAxisSize.min,
+      slivers: [
+        SliverGrid(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1.0,
+          ),
+          delegate: SliverChildListDelegate(
+            [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                  right: 8.0,
+                  top: 16.0,
+                ),
+                child: BeverageSelectionCard(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                  right: 8.0,
+                ),
+                child: ShoppingCartDataTable(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                  right: 8.0,
+                  bottom: 16.0,
+                ),
+                child: BeverageConfirmation(
+                  user: user,
+                  totalSpending: _totalSpending,
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
