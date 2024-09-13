@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AdminPage extends StatefulWidget {
-  const AdminPage({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
   @override
-  State<AdminPage> createState() => _AdminPageState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _AdminPageState extends State<AdminPage> {
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.pageAdminTitle),
+        title: Text(AppLocalizations.of(context)!.pageSettingTitle),
         elevation: 1.0,
       ),
       body: const Placeholder(),

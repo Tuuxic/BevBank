@@ -41,24 +41,24 @@ class _HomePageState extends State<HomePage> {
               title: Text(AppLocalizations.of(context)!.appTitle),
               elevation: 1.0,
               actions: [
-                AppBarButton(
-                  icon: Icons.storage,
-                  label: AppLocalizations.of(context)!.buttonTransaction,
-                  onPressed: () => PageRouter.goToPage(
-                    AppRoute.transactions,
-                    context,
-                  ),
-                ),
+                // AppBarButton(
+                //   icon: Icons.storage,
+                //   label: AppLocalizations.of(context)!.buttonTransaction,
+                //   onPressed: () => PageRouter.goToPage(
+                //     AppRoute.transactions,
+                //     context,
+                //   ),
+                // ),
                 // AppBarButton(
                 //   icon: Icons.add,
                 //   label: AppLocalizations.of(context)!.buttonAddPayment,
                 //   onPressed: () {},
                 // ),
-                AppBarButton(
-                  icon: Icons.person,
-                  label: AppLocalizations.of(context)!.buttonAdmin,
-                  onPressed: () => PageRouter.goToPage(AppRoute.admin, context),
-                ),
+                // AppBarButton(
+                //   icon: Icons.person,
+                //   label: AppLocalizations.of(context)!.buttonAdmin,
+                //   onPressed: () => PageRouter.goToPage(AppRoute.admin, context),
+                // ),
                 AppBarButton(
                   icon: Icons.sort,
                   label: "${AppLocalizations.of(context)!.buttonSortBy}: "
@@ -66,6 +66,48 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () => context.read<UserSortCubit>().nextSortMode(),
                 ),
               ],
+            ),
+            drawer: Drawer(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4.0)),
+              child: ListView(
+                children: [
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)!.appTitle,
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.storage),
+                    title:
+                        Text(AppLocalizations.of(context)!.buttonTransaction),
+                    onTap: () => PageRouter.goToPage(
+                      AppRoute.transactions,
+                      context,
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.person),
+                    title: Text(AppLocalizations.of(context)!.buttonAdmin),
+                    onTap: () => PageRouter.goToPage(
+                      AppRoute.admin,
+                      context,
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: Text(AppLocalizations.of(context)!.buttonSettings),
+                    onTap: () => PageRouter.goToPage(
+                      AppRoute.settings,
+                      context,
+                    ),
+                  ),
+                ],
+              ),
             ),
             body: const UserSelector(),
           );

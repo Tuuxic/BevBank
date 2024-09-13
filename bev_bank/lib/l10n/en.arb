@@ -5,12 +5,15 @@
 
     "pageSelectionTitle": "Select Beverages",
     "pageTransactionTitle": "Transactions",
+    "pageAdminTitle": "Admin Panel",
+    "pageSettingTitle": "Settings",
 
     "noUserSelectedWarning": "No user selected",
     
     "buttonTransaction": "Transactions",
     "buttonAddPayment": "Add Payment",
     "buttonAdmin": "Admin",
+    "buttonSettings": "Settings",
     "buttonSortBy": "Sort By",
     "filterOptionRoom": "Room",
     "filterOptionDebt": "Balance",

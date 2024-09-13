@@ -5,12 +5,15 @@
 
     "pageSelectionTitle": "Wähle Getränke",
     "pageTransactionTitle": "Transaktionen",
+    "pageAdminTitle": "Admin Panel",
+    "pageSettingTitle": "Einstellungen",
 
     "noUserSelectedWarning": "Kein User ausgewählt",
 
     "buttonTransaction": "Transaktionen",
     "buttonAddPayment": "Geld einzahlen",
     "buttonAdmin": "Admin",
+    "buttonSettings": "Einstellungen",
     "buttonSortBy": "Sortieren nach",
     "filterOptionRoom": "Raum",
     "filterOptionDebt": "Saldo",

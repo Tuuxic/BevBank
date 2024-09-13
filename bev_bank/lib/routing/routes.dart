@@ -1,6 +1,7 @@
 import 'package:bev_bank/pages/admin/admin_page.dart';
 import 'package:bev_bank/pages/home/home_page.dart';
 import 'package:bev_bank/pages/selection/selection_page.dart';
+import 'package:bev_bank/pages/settings/settings_page.dart';
 import 'package:bev_bank/pages/transaction/transaction_page.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,8 @@ enum AppRoute {
   home(path: "/home"),
   transactions(path: "/transactions"),
   selection(path: "/selection"),
-  admin(path: "/admin");
+  admin(path: "/admin"),
+  settings(path: "/settings");
 
   const AppRoute({required this.path});
 
@@ -19,5 +21,6 @@ enum AppRoute {
         transactions.path: (context) => const TransactionsPage(),
         selection.path: (context) => const SelectionPage(),
         admin.path: (context) => const AdminPage(),
+        settings.path: (context) => const SettingsPage(),
       };
 }
