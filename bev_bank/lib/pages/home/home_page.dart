@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           return Scaffold(
             appBar: AppBar(
               title: Text(
-                AppLocalizations.of(context)!.appTitle,
+                "${AppLocalizations.of(context)!.appTitle} 🍾",
                 style:
                     const TextStyle(inherit: true, fontWeight: FontWeight.bold),
               ),
