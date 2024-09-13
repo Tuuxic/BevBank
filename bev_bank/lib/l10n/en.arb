@@ -10,6 +10,7 @@
     
     "buttonTransaction": "Transactions",
     "buttonAddPayment": "Add Payment",
+    "buttonAdmin": "Admin",
     "buttonSortBy": "Sort By",
     "filterOptionRoom": "Room",
     "filterOptionDebt": "Balance",

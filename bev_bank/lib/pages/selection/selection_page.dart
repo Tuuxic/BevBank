@@ -111,7 +111,7 @@ class _SelectionPageState extends State<SelectionPage> {
       // mainAxisSize: MainAxisSize.min,
       slivers: [
         SliverGrid(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
@@ -119,16 +119,16 @@ class _SelectionPageState extends State<SelectionPage> {
           ),
           delegate: SliverChildListDelegate(
             [
-              Padding(
-                padding: const EdgeInsets.only(
+              const Padding(
+                padding: EdgeInsets.only(
                   left: 8.0,
                   right: 8.0,
                   top: 16.0,
                 ),
                 child: BeverageSelectionCard(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
+              const Padding(
+                padding: EdgeInsets.only(
                   left: 8.0,
                   right: 8.0,
                 ),

@@ -49,18 +49,21 @@ class _HomePageState extends State<HomePage> {
                     context,
                   ),
                 ),
+                // AppBarButton(
+                //   icon: Icons.add,
+                //   label: AppLocalizations.of(context)!.buttonAddPayment,
+                //   onPressed: () {},
+                // ),
                 AppBarButton(
-                  icon: Icons.add,
-                  label: AppLocalizations.of(context)!.buttonAddPayment,
-                  onPressed: () {},
+                  icon: Icons.person,
+                  label: AppLocalizations.of(context)!.buttonAdmin,
+                  onPressed: () => PageRouter.goToPage(AppRoute.admin, context),
                 ),
                 AppBarButton(
                   icon: Icons.sort,
                   label: "${AppLocalizations.of(context)!.buttonSortBy}: "
                       "${state.title(context)} $sortSymbol",
-                  onPressed: () {
-                    context.read<UserSortCubit>().nextSortMode();
-                  },
+                  onPressed: () => context.read<UserSortCubit>().nextSortMode(),
                 ),
               ],
             ),

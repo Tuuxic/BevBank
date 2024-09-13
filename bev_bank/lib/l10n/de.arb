@@ -10,6 +10,7 @@
 
     "buttonTransaction": "Transaktionen",
     "buttonAddPayment": "Geld einzahlen",
+    "buttonAdmin": "Admin",
     "buttonSortBy": "Sortieren nach",
     "filterOptionRoom": "Raum",
     "filterOptionDebt": "Saldo",
