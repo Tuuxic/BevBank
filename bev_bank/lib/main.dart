@@ -1,5 +1,6 @@
-import 'package:bev_bank/application/beverage_selection/beverage_selection_bloc.dart';
-import 'package:bev_bank/application/user/user_bloc.dart';
+// import 'package:bev_bank/application/beverage_selection/beverage_selection_bloc.dart';
+// import 'package:bev_bank/application/user/user_bloc.dart';
+// import 'package:bev_bank/application/user/user_bloc.dart';
 import 'package:bev_bank/application/user_selection/user_selection_bloc.dart';
 import 'package:bev_bank/routing/routes.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,7 @@ class BevBankApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UserSelectionBloc()),
-        BlocProvider(create: (context) => BeverageSelectionBloc()),
-        BlocProvider(create: (context) => UserBloc()),
+        // BlocProvider(create: (context) => UserBloc()),
       ],
       child: MaterialApp(
         title: 'BevBank',
@@ -27,7 +27,6 @@ class BevBankApp extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
-          //ColorScheme.fromSeed(seedColor: Colors.green),
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.lightBlue,
             brightness: Brightness.dark,

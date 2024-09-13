@@ -1,6 +1,7 @@
 import 'package:bev_bank/application/beverage_selection/beverage_selection_bloc.dart';
 import 'package:bev_bank/application/user_selection/user_selection_bloc.dart';
 import 'package:bev_bank/domain/models/user.dart';
+import 'package:bev_bank/pages/selection/application/sort/beverage_sort_cubit.dart';
 import 'package:bev_bank/pages/selection/components/beverage_confirmation.dart';
 import 'package:bev_bank/pages/selection/components/beverage_selection.dart';
 import 'package:bev_bank/pages/selection/components/shopping_cart.dart';
@@ -21,25 +22,31 @@ class _SelectionPageState extends State<SelectionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.pageSelectionTitle),
-        elevation: 1.0,
-        backgroundColor: Theme.of(context).primaryColor,
-      ),
-      body: BlocBuilder<UserSelectionBloc, UserSelectionState>(
-        builder: (context, state) {
-          switch (state) {
-            case UserSelectedState state:
-              return displayBeverageSelection(state.user);
-            case NoUserSelectedState _:
-              return Center(
-                child: Text(
-                  AppLocalizations.of(context)!.noUserSelectedWarning,
-                ),
-              );
-          }
-        },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => BeverageSelectionBloc()),
+        BlocProvider(create: (context) => BeverageSortCubit()),
+      ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context)!.pageSelectionTitle),
+          elevation: 1.0,
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        body: BlocBuilder<UserSelectionBloc, UserSelectionState>(
+          builder: (context, state) {
+            switch (state) {
+              case UserSelectedState state:
+                return displayBeverageSelection(state.user);
+              case NoUserSelectedState _:
+                return Center(
+                  child: Text(
+                    AppLocalizations.of(context)!.noUserSelectedWarning,
+                  ),
+                );
+            }
+          },
+        ),
       ),
     );
   }
