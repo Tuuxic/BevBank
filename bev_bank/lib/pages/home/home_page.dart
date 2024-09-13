@@ -38,7 +38,11 @@ class _HomePageState extends State<HomePage> {
           String sortSymbol = state.sort == SortDirection.asc ? "▲" : "▼";
           return Scaffold(
             appBar: AppBar(
-              title: Text(AppLocalizations.of(context)!.appTitle),
+              title: Text(
+                AppLocalizations.of(context)!.appTitle,
+                style:
+                    const TextStyle(inherit: true, fontWeight: FontWeight.bold),
+              ),
               elevation: 1.0,
               actions: [
                 // AppBarButton(
@@ -78,7 +82,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Text(
                       AppLocalizations.of(context)!.appTitle,
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineLarge
+                          ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                   ),
                   ListTile(

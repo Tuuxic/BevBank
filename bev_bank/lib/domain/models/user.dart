@@ -1,7 +1,7 @@
 class User {
   final int id;
   final String name;
-  final double balance;
+  final int balance;
   final int roomNumber;
 
   User({
@@ -10,4 +10,12 @@ class User {
     required this.balance,
     required this.roomNumber,
   });
+
+  String balanceToString() {
+    return "${(balance / 100).toStringAsFixed(2)}€";
+  }
+
+  String roomNumberToString() {
+    return roomNumber.toString().padLeft(2, '0');
+  }
 }

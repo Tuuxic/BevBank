@@ -27,7 +27,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       (i) => User(
         id: i,
         name: "User ${i + 1}",
-        balance: i * 100,
+        balance: (i % 2 == 0 ? -1 : 1) * i * 500,
         roomNumber: i + 1,
       ),
     );

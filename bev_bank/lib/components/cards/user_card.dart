@@ -42,25 +42,55 @@ class UserCard extends StatelessWidget {
                 children: [
                   Text(
                     user.name,
-                    style: Theme.of(context).textTheme.labelLarge,
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
                   ),
                   Text(
-                    user.balance.toString(),
-                    style: Theme.of(context).textTheme.labelLarge,
+                    user.balanceToString(),
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: _balanceColor(user.balance),
+                        ),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                user.roomNumber.toString().padLeft(2, '0'),
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
+            Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      user.roomNumberToString(),
+                      textScaler: const TextScaler.linear(1.5),
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  Color _balanceColor(int balance) {
+    if (balance > 0) {
+      return Colors.green;
+    } else if (balance == 0) {
+      return Colors.grey;
+    } else if (balance < 0 && balance > -3000) {
+      return Colors.redAccent;
+    } else if (balance <= -3000) {
+      return Colors.red;
+    } else {
+      return Colors.red;
+    }
   }
 }
