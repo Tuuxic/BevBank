@@ -6,18 +6,11 @@ import 'package:bev_bank/util/screen_size_detection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class BeverageSelectionCard extends StatefulWidget {
+class BeverageSelectionCard extends StatelessWidget {
   const BeverageSelectionCard({super.key});
 
   @override
-  State<BeverageSelectionCard> createState() => _BeverageSelectionCardState();
-}
-
-class _BeverageSelectionCardState extends State<BeverageSelectionCard> {
-  ScrollController _scrollController = ScrollController();
-  @override
   Widget build(BuildContext context) {
-    bool isMobile = ScreenSizeDetection.isMobile(context);
     return ContentCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
