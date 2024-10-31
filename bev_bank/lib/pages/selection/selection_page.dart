@@ -83,8 +83,14 @@ class _SelectionPageState extends State<SelectionPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Flexible(flex: 1, child: BeverageSelectionCard()),
-                Flexible(flex: 1, child: ShoppingCartDataTable())
+                Expanded(
+                  flex: 2,
+                  child: BeverageSelectionCard(),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: ShoppingCartDataTable(),
+                )
               ],
             ),
           ),
@@ -110,13 +116,7 @@ class _SelectionPageState extends State<SelectionPage> {
     return CustomScrollView(
       // mainAxisSize: MainAxisSize.min,
       slivers: [
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 1.0,
-          ),
+        SliverList(
           delegate: SliverChildListDelegate(
             [
               const Padding(
@@ -125,14 +125,18 @@ class _SelectionPageState extends State<SelectionPage> {
                   right: 8.0,
                   top: 16.0,
                 ),
-                child: BeverageSelectionCard(),
+                child: BeverageSelectionCard(
+                  isExpanded: false,
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.only(
                   left: 8.0,
                   right: 8.0,
                 ),
-                child: ShoppingCartDataTable(),
+                child: ShoppingCartDataTable(
+                  isExpanded: false,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -143,11 +147,12 @@ class _SelectionPageState extends State<SelectionPage> {
                 child: BeverageConfirmation(
                   user: user,
                   totalSpending: _totalSpending,
+                  isExpanded: false,
                 ),
               )
             ],
           ),
-        ),
+        )
       ],
     );
   }
